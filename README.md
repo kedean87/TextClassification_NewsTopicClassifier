@@ -46,7 +46,7 @@ After running the `NTC` class (`python NTC.py`), the model produces the followin
 | Sports     | 0.95      | 0.97   | 0.96     | 6058   |
 | Business   | 0.87      | 0.88   | 0.88     | 5911   |
 | Sci/Tech   | 0.89      | 0.88   | 0.88     | 6075   |
-| **Accuracy**   | 0.91      | 0.91   | 0.91     | 24000  |
+| **Accuracy**   | | | 0.91     | 24000  |
 | **Macro Avg**  | 0.91      | 0.91   | 0.91     | 24000  |
 | **Weighted Avg** | 0.91  | 0.91   | 0.91     | 24000  |
 
