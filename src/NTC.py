@@ -48,7 +48,7 @@ class NTC():
         print("Columns:", self.df.columns.tolist())
         
         # Handle both possible schema versions
-        if "text" in df.columns:
+        if "text" in self.df.columns:
             self.df["combined_text"] = self.df["text"]
         elif all(col in df.columns for col in ["title", "description"]):
             self.df["combined_text"] = self.df["title"] + " " + self.df["description"]
