@@ -50,7 +50,7 @@ class NTC():
         # Handle both possible schema versions
         if "text" in self.df.columns:
             self.df["combined_text"] = self.df["text"]
-        elif all(col in df.columns for col in ["title", "description"]):
+        elif all(col in self.df.columns for col in ["title", "description"]):
             self.df["combined_text"] = self.df["title"] + " " + self.df["description"]
         else:
             raise ValueError("Unexpected column names in AG News dataset.")
