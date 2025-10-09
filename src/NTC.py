@@ -10,6 +10,10 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import re, string
 
+import nltk
+nltk.download("punkt", quiet=True)
+nltk.download("stopwords", quiet=True)
+
 class NTC():
     def __init__(self):
         self.dataset = None
