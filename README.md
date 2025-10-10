@@ -9,8 +9,8 @@ The goal is to automatically classify news articles into **four categories**:
 - Science/Technology
 
 This project implements a **classic NLP workflow** using:
-- **TF-IDF vectorization** for text feature extraction
-- **Logistic Regression** for supervised classification
+- **TF-IDF/Count/Hashing vectorization** for text feature extraction
+- **Logistic Regression/Linear SVC/Naive Bayes** for supervised classification
 
 ---
 
@@ -36,7 +36,7 @@ The dataset can be accessed automatically via the `datasets` library from Huggin
 
 ## Example Output
 
-After running the `NTC` class (`python NTC.py`), the model produces the following evaluation metrics:
+After running the `NTC` class (`python NTC.py`) against TF-IDF vectorizer and Logistic Regression classifier, the model produces the following evaluation metrics:
 
 **Classification Report:**
 
@@ -55,4 +55,39 @@ After running the `NTC` class (`python NTC.py`), the model produces the followin
 ![Confusion Matrix](images/confusion_matrix_logreg.png)
 
 > The heatmap shows how many articles in each category were correctly classified versus misclassified.
+
+---
+
+## 🧠 Model Comparison: Vectorizers × Classifiers
+
+| Vectorizer | Classifier           | Accuracy |
+|-------------|----------------------|-----------|
+| **TF-IDF**  | Logistic Regression  | **0.9065** |
+| **TF-IDF**  | Linear SVC           | 0.9039 |
+| **Count**   | Linear SVC           | 0.8955 |
+| **TF-IDF**  | Naive Bayes          | 0.8933 |
+| **Count**   | Naive Bayes          | 0.8930 |
+| **Count**   | Logistic Regression  | 0.8919 |
+| **Hashing** | Linear SVC           | 0.8843 |
+| **Hashing** | Logistic Regression  | 0.8821 |
+| **Hashing** | Naive Bayes          | 0.8697 |
+
+---
+
+### 🔍 Summary
+
+- **TF-IDF + Logistic Regression** achieved the **highest accuracy (≈ 90.7%)**.  
+- **TF-IDF** consistently outperformed other vectorizers across all models.  
+- **Linear SVC** and **Logistic Regression** both performed strongly and serve as solid baselines for multiclass text classification.  
+- **Hashing Vectorizer** trailed slightly because it doesn’t retain term frequency or inverse document weighting information.
+
+---
+
+### 💡 Why TF-IDF + Logistic Regression Works Well
+
+- **TF-IDF** emphasizes unique and informative words by down-weighting very common terms (e.g., “the,” “is,” “and”).  
+- **Logistic Regression** learns clear linear decision boundaries, which works well when text data is vectorized into high-dimensional sparse representations.  
+- Together, they strike a balance between interpretability, efficiency, and performance — making this combination a go-to baseline for many NLP classification tasks.
+
+---
 
