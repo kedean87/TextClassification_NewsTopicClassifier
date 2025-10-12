@@ -6,11 +6,6 @@ The project demonstrates end-to-end deployment of a machine learning model to a 
 
 ---
 
-## Project Structure
-
-
----
-
 ## Challenges Faced
 
 1. **Flask not compatible with Lambda**  
