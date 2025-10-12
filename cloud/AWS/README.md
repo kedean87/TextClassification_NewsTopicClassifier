@@ -7,23 +7,28 @@ The project demonstrates end-to-end deployment of a machine learning model to a 
 ---
 
 ## Challenges Faced
+1. **API Gateway not suitable for large ML models**  
+   - Initially, we attempted to deploy the model using **API Gateway + Lambda**. However, the combined memory and payload size limits of AWS Lambda prevented the model from loading successfully. This approach was not feasible for our use case.
 
-1. **Flask not compatible with Lambda**  
+2. **Containerized Lambda deployment**  
+   - To overcome memory limitations and simplify dependency management, we switched to **containerizing the deployment**. Using Docker allowed us to package the model, vectorizer, and Python dependencies together, providing full control over the environment and memory allocation.
+
+3. **Flask not compatible with Lambda**  
    - Lambda requires a `lambda_handler` entrypoint, not a web server.
 
-2. **AWS Lambda Container Architecture**  
+4. **AWS Lambda Container Architecture**  
    - Lambda defaulted to `x86_64` while local builds were sometimes `arm64`, causing `Runtime.InvalidEntrypoint` errors.
 
-3. **Invalid image media type**  
+5. **Invalid image media type**  
    - OCI manifest issues caused Lambda to reject the container image. Explicitly building with `--platform linux/amd64` resolved this.
 
-4. **UTF-8 encoding for payloads**  
+6. **UTF-8 encoding for payloads**  
    - The AWS CLI expects JSON payloads in UTF-8. ASCII payloads caused `InvalidRequestContentException`.
 
-5. **Python dependency issues**  
+7. **Python dependency issues**  
    - Some runtime libraries (e.g., `aws-lambda-ric`) were missing or version mismatched. Using the official AWS Lambda Python base image helped.
 
-6. **Timeout issues**  
+8. **Timeout issues**  
    - The default Lambda timeout was too short (3 seconds) for the model load + prediction. Increasing timeout resolved `Sandbox.Timedout` errors.
 
 ---
