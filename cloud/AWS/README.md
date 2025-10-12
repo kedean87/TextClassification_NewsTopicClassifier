@@ -82,6 +82,12 @@ aws lambda invoke \
 ```
 ---
 
+![AWS Lambda Console](images/AgNewsLambdaTestFunction.png)
+
+> Showing that the test can be run from the AWS console as well.
+
+---
+
 ## Lessons Learned
 
 - Lambda container architecture must match Docker build platform (--platform linux/amd64 or arm64).
@@ -89,6 +95,8 @@ aws lambda invoke \
 - Dependencies must be compatible with the Lambda base image.
 - Testing locally inside the container is crucial before pushing to ECR.
 - Timeout and memory settings can affect containerized ML model execution.
+
+
 
 
 
