@@ -73,13 +73,13 @@ az acr create --resource-group agnews-rg --name agnewsregistry12345 --sku Basic
 az acr update -n agnewsregistry12345 --admin-enabled true
 ```
 
-3. **Push Docker Image to ACR
+3. **Push Docker Image to ACR**
 ```bash
 az acr login --name agnewsregistry12345
 docker push agnewsregistry12345.azurecr.io/ag-news-azure:latest
 ```
 
-4. **Create Web App & Configure Container
+4. **Create Web App & Configure Container**
 ```bash
 az webapp create --resource-group agnews-rg --plan agnews-plan --name agnews-webapp --deployment-container-image-name agnewsregistry12345.azurecr.io/ag-news-azure:latest
 
