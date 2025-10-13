@@ -139,4 +139,4 @@ Example Response:
 	- Solution:
 		-Rebuilt image with **--platform=linux/amd64**.
 		-Corrected **WORKDIR** in Dockerfile.
-		-Verified Flask app exposes port **8080**.
+		-Verified Flask app exposes port **80**.
