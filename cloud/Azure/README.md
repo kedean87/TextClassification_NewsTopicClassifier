@@ -106,12 +106,14 @@ curl -X POST https://agnews-webapp.azurewebsites.net/predict \
   -d '{"text": "SpaceX launches new rocket into orbit"}'
 ```
 
-Expected Response:
+Example Response:
 ```json
 {
   "prediction": 2
 }
 ```
+
+![Azure Console Prediction](images/AgNewsPredictionAzureWebApp.png)
 
 ---
 
