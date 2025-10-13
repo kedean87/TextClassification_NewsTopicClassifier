@@ -118,7 +118,7 @@ Example Response:
 
 ## Challenges & Solutions:
 
-1. **AWS Lambda architecture mismatch** 
+1. **Azure/Container architecture mismatch** 
 	- Problem: exec format error due to arm64 vs amd64 mismatch.
 	- Solution: Rebuilt Docker image explicitly for linux/amd64.
 2. **Flask JSON serialization error**
