@@ -1,4 +1,4 @@
-# AG News Text Classification — TF-IDF + Logistic Regression
+# AG News Text Classification — example -> TF-IDF + Logistic Regression
 
 ## Project Overview
 This project demonstrates a **text classification pipeline** using the [AG News dataset](https://www.kaggle.com/datasets/amananandrai/ag-news-classification-dataset).  
