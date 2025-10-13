@@ -35,10 +35,9 @@ This project includes:
 
 ---
 
-## Setup & Installation
+## Docker Containerization
 
-1. **Docker Containerization**
-Create Dockerfile
+1. **Create Dockerfile**
 
 2. **Build the Docker image (without cache to avoid architecture or stale dependency issues):**
 ```bash
