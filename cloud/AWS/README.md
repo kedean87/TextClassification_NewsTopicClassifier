@@ -63,6 +63,7 @@ docker tag ag-news-lambda:latest <your_account_id>.dkr.ecr.us-east-2.amazonaws.c
 docker push <your_account_id>.dkr.ecr.us-east-2.amazonaws.com/ag-news-lambda:latest```
 ```
 ### 7. Create Lambda Function with Container
+- Before you create the lambda function, you must create the `--role` arn. Go to AWS Console, select `IAM -> Roles -> Create Role`, select the role once created, and copy the arn that was generated to be used as the `--role` argument that you see below.
 ```bash
 aws lambda create-function \
   --function-name ag-news-lambda \
