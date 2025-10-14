@@ -130,7 +130,6 @@ curl -X POST https://ag-news-api-abcdef123-uc.a.run.app/predict \
 | Billing account missing | GCP requires billing | Link billing account (still free within limits) |
 | Architecture mismatch | macOS M1/M2 default build is `arm64` | Use `--platform linux/amd64` during build |
 | `ModuleNotFoundError` for `joblib` or `sklearn` | Missing packages | Confirm `requirements.txt` includes all dependencies |
-| Blank console logs in Cloud Run | App crashed before start | Ensure `app.run(host="0.0.0.0", port=8080)` is used |
 
 ---
 
