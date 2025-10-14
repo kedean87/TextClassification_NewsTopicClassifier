@@ -45,14 +45,20 @@ Create `requirements.txt`
 Create `Dockerfile`
 
 ### 4. Build Docker Image
-```docker build --platform linux/amd64 -t ag-news-lambda .```
+```bash
+docker build --platform linux/amd64 -t ag-news-lambda .
+```
 
 ### 5. Test Locally
 from one terminal, execute:
-```docker run -p 9000:8080 ag_news_lambda```
+```bash
+docker run -p 9000:8080 ag_news_lambda
+```
 
 from another terminal, execute:
-```curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"text":"The stock market is up today."}'```
+```bash
+curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"text":"The stock market is up today."}'
+```
 
 ### 6. Push Docker Image to AWS ECR
 ```bash
@@ -62,7 +68,7 @@ aws ecr get-login-password --region us-east-2 | docker login --username AWS --pa
 
 docker tag ag-news-lambda:latest <your_account_id>.dkr.ecr.us-east-2.amazonaws.com/ag-news-lambda:latest
 
-docker push <your_account_id>.dkr.ecr.us-east-2.amazonaws.com/ag-news-lambda:latest```
+docker push <your_account_id>.dkr.ecr.us-east-2.amazonaws.com/ag-news-lambda:latest
 ```
 ### 7. Create Lambda Function with Container
 - Before you create the lambda function, you must create the `--role` arn. Go to AWS Console, select `IAM -> Roles -> Create Role`, select the role once created, and copy the arn that was generated to be used as the `--role` argument that you see below.
