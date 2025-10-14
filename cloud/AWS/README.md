@@ -56,6 +56,8 @@ from another terminal, execute:
 
 ### 6. Push Docker Image to AWS ECR
 ```bash
+aws ecr create-repository --repository-name ag-news-lambda --region us-east-2
+
 aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin <your_account_id>.dkr.ecr.us-east-2.amazonaws.com
 
 docker tag ag-news-lambda:latest <your_account_id>.dkr.ecr.us-east-2.amazonaws.com/ag-news-lambda:latest
