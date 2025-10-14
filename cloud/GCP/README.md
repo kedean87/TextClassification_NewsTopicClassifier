@@ -86,7 +86,7 @@ gcloud auth login
 gcloud config set project ag-news-gcp
 gcloud projects add-iam-policy-binding ag-news-gcp \                         
   --member="user:<your-email-here>@gmail.com" \
-  --role="roles/editor
+  --role="roles/editor"
 ```
 
 ---
