@@ -115,6 +115,9 @@ curl -X POST https://ag-news-api-abcdef123-uc.a.run.app/predict \
   -d '{"text": "SpaceX launches new rocket into orbit"}'
 ```
 
+![AG News Prediction](images/AgNewsGCPPrediction.png)
+> Showing that the container can run the prediction from the GCP web console.
+
 ✅ Example Output:
 ```bash
 {"prediction": 3}
